@@ -29,7 +29,7 @@ class MongoDbRepository:
         tarefa_encontrada = self.tarefas.find_one(filtro)
         if tarefa_encontrada:
             return Tarefa.fromDict(tarefa_encontrada)
-        return {"mensagem","usuario nao encontrado"}
+        return {"mensagem","tarefa nao encontrada"}
     
     def deletarTarefa(self, id) -> None:
         if len(id) != 24:
@@ -39,7 +39,7 @@ class MongoDbRepository:
         if tarefa_encontrada:
             self.tarefas.delete_one(tarefa_encontrada)
             return {'mensagem': 'tarefa deletada'}
-        return {'mensagem': 'usuario nao encontrado'}
+        return {'mensagem': 'tarefa nao encontrada'}
     
     def atualizarTarefa(self, id, tarefa) -> Optional[Tarefa]:
         filtro = {"_id": ObjectId(id)}
