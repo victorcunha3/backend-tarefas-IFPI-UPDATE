@@ -8,8 +8,9 @@ load_dotenv()
 
 app = FastAPI()
 
-origins = ['http://localhost:5500',"http://127.0.0.1:5500", 'https://main--glittering-druid-b1e982.netlify.app/',
-           'https://victorcunha3.github.io/TrabalhoTarefas-IFPI-ads/']
+'''origins = ['http://localhost:5500',"http://127.0.0.1:5500", 'https://main--glittering-druid-b1e982.netlify.app/',
+           'https://victorcunha3.github.io/TrabalhoTarefas-IFPI-ads/']'''
+origins = ['*']
 
 app.add_middleware(
     CORSMiddleware,
